@@ -359,6 +359,7 @@ function Get-NinjaGetSetting {
         # The setting to get.
         [ValidateSet(
             'LogPath',
+            'Standalone',
             'TrackingPath',
             'NotificationLevel',
             'AutoUpdate',
@@ -413,6 +414,8 @@ function Register-NinjaGetSettings {
     param(
         # The log file path setting.
         [string]$LogPath,
+        # The standlone mode setting.
+        [string]$Standalone,
         # The tracking file path setting.
         [string]$TrackingPath,
         # Notification level setting.
@@ -459,6 +462,9 @@ function Register-NinjaGetSettings {
     $null = New-Item -Path $RegistryPath -Force
     if ($LogPath) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'LogPath' -Value $LogPath -Force
+    }
+    if ($Standalone) {
+        $null = New-ItemProperty -Path $RegistryPath -Name 'Standalone' -Value $Standalone -Force
     }
     if ($TrackingPath) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'TrackingPath' -Value $TrackingPath -Force
