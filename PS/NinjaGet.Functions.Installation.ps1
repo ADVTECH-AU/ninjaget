@@ -361,8 +361,8 @@ function Get-NinjaGetSetting {
             'LogPath',
             'Standalone',
             'StatusStandalone',
-            'AppToinstallStandalone',
-            'AppToUninstallStandalone',
+            'AppsToinstallStandalone',
+            'AppsToUninstallStandalone',
             'TrackingPath',
             'NotificationLevel',
             'AutoUpdate',
@@ -422,9 +422,9 @@ function Register-NinjaGetSettings {
         # The StatusStandalone mode setting.
         [string]$StatusStandalone,
         # The AppToinstallStandalone mode setting.
-        [string]$AppToinstallStandalone,
+        [string]$AppsToinstallStandalone,
         # The AppToUninstallStandalone mode setting.
-        [string]$AppToUninstallStandalone,
+        [string]$AppsToUninstallStandalone,
         # The tracking file path setting.
         [string]$TrackingPath,
         # Notification level setting.
@@ -479,10 +479,10 @@ function Register-NinjaGetSettings {
         $null = New-ItemProperty -Path $RegistryPath -Name 'StatusStandalone' -Value $StatusStandalone -Force
     }
     if ($AppToinstallStandalone) {
-        $null = New-ItemProperty -Path $RegistryPath -Name 'AppToinstallStandalone' -Value $AppToinstallStandalone -PropertyType 'MultiString' -Force
+        $null = New-ItemProperty -Path $RegistryPath -Name 'AppsToinstallStandalone' -Value $AppsToinstallStandalone -PropertyType 'MultiString' -Force
     }
     if ($AppToUninstallStandalone) {
-        $null = New-ItemProperty -Path $RegistryPath -Name 'AppToUninstallStandalone' -Value $AppToUninstallStandalone -PropertyType 'MultiString' -Force
+        $null = New-ItemProperty -Path $RegistryPath -Name 'AppsToUninstallStandalone' -Value $AppsToUninstallStandalone -PropertyType 'MultiString' -Force
     }
     if ($TrackingPath) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'TrackingPath' -Value $TrackingPath -Force
