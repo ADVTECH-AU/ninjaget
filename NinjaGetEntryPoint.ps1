@@ -529,7 +529,7 @@ switch ($Script:Operation) {
         if ($Script:UseTaskScheduler) {
             Get-ScheduledTask -TaskName 'NinjaGet Updater' | Start-ScheduledTask
         } else {
-            .\(Join-Path -Path $Script:WorkingDir -ChildPath 'PS\Invoke-NinjaGetUpdates.ps1') -SkipBlockList $Script:IgnoreBlocklist
+            .\(Join-Path -Path $Script:WorkingDir -ChildPath 'PS\Invoke-NinjaGetUpdates.ps1') -SkipBlockList $Script:IgnoreBlocklist -Standalone $Script:Standalone
         }
     }
 }
