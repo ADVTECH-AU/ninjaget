@@ -478,10 +478,10 @@ function Register-NinjaGetSettings {
     if ($StatusStandalone) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'StatusStandalone' -Value $StatusStandalone -Force
     }
-    if ($AppToinstallStandalone) {
+    if ($AppsToinstallStandalone) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'AppsToinstallStandalone' -Value $AppsToinstallStandalone -PropertyType 'MultiString' -Force
     }
-    if ($AppToUninstallStandalone) {
+    if ($AppsToUninstallStandalone) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'AppsToUninstallStandalone' -Value $AppsToUninstallStandalone -PropertyType 'MultiString' -Force
     }
     if ($TrackingPath) {
