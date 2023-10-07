@@ -418,7 +418,7 @@ function Register-NinjaGetSettings {
         # The log file path setting.
         [string]$LogPath,
         # The standlone mode setting.
-        [string]$Standalone,
+        [int]$Standalone,
         # The StatusStandalone mode setting.
         [string]$StatusStandalone,
         # The AppToinstallStandalone mode setting.
