@@ -362,7 +362,7 @@ function Get-NinjaGetSetting {
             'Standalone',
             'StatusStandalone',
             'AppToinstallStandalone',
-            'AppToUninstallStandalone,
+            'AppToUninstallStandalone',
             'TrackingPath',
             'NotificationLevel',
             'AutoUpdate',
