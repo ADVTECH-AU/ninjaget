@@ -26,6 +26,7 @@ function Update-LastRunStatus {
         [ValidateSet('Success', 'Failure')]
         [string]$Status
     )
+    Write-Verbose 'Standalone mode set to : $Standalone'
     if ($Script:Standalone) {
         # Set the last run status.
         $RegistryPath = 'HKLM:\SOFTWARE\NinjaGet'
@@ -48,6 +49,7 @@ function Get-AppsToInstall {
         [Parameter(Mandatory)]
         [string]$AppInstallField
     )
+    Write-Verbose 'Standalone mode set to : $Standalone'
     if ($Script:Standalone) {
         # Get the application install field.
         $AppsToInstall = Get-NinjaGetSetting -Setting 'AppsToInstallStandalone'
@@ -71,6 +73,7 @@ function Get-AppsToUninstall {
         [Parameter(Mandatory)]
         [string]$AppUninstallField
     )
+    Write-Verbose 'Standalone mode set to : $Standalone'
     if ($Script:Standalone) {
         # Get the application uninstall field.
         $AppsToUninstall = Get-NinjaGetSetting -Setting 'AppsToUninstallStandalone'
