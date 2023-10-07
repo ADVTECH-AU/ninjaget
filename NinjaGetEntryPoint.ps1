@@ -188,7 +188,7 @@ function Initialize-NinjaGet {
         $Script:AppToUninstallStandalone = $RegistryAppToUninstallStandalone
     } else {
         Write-Verbose 'Standalone setting not provided, using default.'
-        $Script:AppToUninstallStandalone = ""
+        $Script:AppToUninstallStandalone = "replacewithapplications"
     }
     # Get the NinjaGet StatusStandalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
     $RegistryStatusStandalone = Get-NinjaGetSetting -Setting 'StatusStandalone'
