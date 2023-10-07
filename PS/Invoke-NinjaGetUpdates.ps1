@@ -1,9 +1,9 @@
 [CmdletBinding()]
 param(
     # Skip the blocklist check.
-    [bool]$SkipBlocklist = $false
+    [bool]$SkipBlocklist = $false,
     # Standalone Mode
-    [bool]$Standalone = $false,
+    [bool]$Standalone = $false
 )
 $Script:Standalone = $Standalone
 $WorkingDir = Get-ItemPropertyValue -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\NinjaGet' -Name 'InstallLocation' -ErrorAction SilentlyContinue
