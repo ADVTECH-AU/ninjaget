@@ -435,7 +435,7 @@ switch ($Script:Operation) {
             Test-NinjaGetPrerequisites
             Register-NinjaGetProgramEntry -DisplayName $ProgramName -Publisher $ProgramPublisher
             Register-NotificationApp -DisplayName $NotificationTitle -ImageURL $NotificationImageURL
-            Register-NinjaGetUpdaterScheduledTask -TimeToUpdate $UpdateTime -UpdateInterval $UpdateInterval -UpdateOnLogin $UpdateOnLogin
+            Register-NinjaGetUpdaterScheduledTask -TimeToUpdate $UpdateTime -UpdateInterval $UpdateInterval -UpdateOnLogin $UpdateOnLogin -Standalone $Standalone
             Register-NinjaGetNotificationsScheduledTask
             $NinjaGetSettings = @{
                 'LogPath' = $Script:LogPath
