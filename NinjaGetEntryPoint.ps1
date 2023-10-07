@@ -179,7 +179,7 @@ function Initialize-NinjaGet {
         $Script:AppsToInstallStandalone = "google.chrome"
     }
     # Get the NinjaGet AppToUninstallStandalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
-    $RegistryAppsToInstallStandalone = Get-NinjaGetSetting -Setting 'AppsToUninstallStandalone'
+    $RegistryAppsToUninstallStandalone = Get-NinjaGetSetting -Setting 'AppsToUninstallStandalone'
     if ($AppToUninstallStandalone) {
         Write-Verbose 'AppsToUninstallStandalone setting provided, using that.'
         $Script:AppsToUninstallStandalone = $AppsToUninstallStandalone
