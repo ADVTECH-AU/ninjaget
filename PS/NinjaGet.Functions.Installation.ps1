@@ -416,6 +416,12 @@ function Register-NinjaGetSettings {
         [string]$LogPath,
         # The standlone mode setting.
         [string]$Standalone,
+        # The StatusStandalone mode setting.
+        [string]$StatusStandalone,
+        # The AppToinstallStandalone mode setting.
+        [string]$AppToinstallStandalone,
+        # The AppToUninstallStandalone mode setting.
+        [string]$AppToUninstallStandalone,
         # The tracking file path setting.
         [string]$TrackingPath,
         # Notification level setting.
@@ -464,7 +470,16 @@ function Register-NinjaGetSettings {
         $null = New-ItemProperty -Path $RegistryPath -Name 'LogPath' -Value $LogPath -Force
     }
     if ($Standalone) {
-        $null = New-ItemProperty -Path $RegistryPath -Name 'Standalone' -Value $Standalone -Force
+        $null = New-ItemProperty -Path $RegistryPath -Name 'Standalone' -Value $Standalone -PropertyType DWORD -Force
+    }
+    if ($StatusStandalone) {
+        $null = New-ItemProperty -Path $RegistryPath -Name 'StatusStandalone' -Value $StatusStandalone -Force
+    }
+    if ($AppToinstallStandalone) {
+        $null = New-ItemProperty -Path $RegistryPath -Name 'AppToinstallStandalone' -Value $AppToinstallStandalone -PropertyType 'MultiString' -Force
+    }
+    if ($AppToUninstallStandalone) {
+        $null = New-ItemProperty -Path $RegistryPath -Name 'AppToUninstallStandalone' -Value $AppToUninstallStandalone -PropertyType 'MultiString' -Force
     }
     if ($TrackingPath) {
         $null = New-ItemProperty -Path $RegistryPath -Name 'TrackingPath' -Value $TrackingPath -Force
