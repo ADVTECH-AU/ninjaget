@@ -440,6 +440,9 @@ switch ($Script:Operation) {
             $NinjaGetSettings = @{
                 'LogPath' = $Script:LogPath
                 'Standalone' = $Script:Standalone
+                'StatusStandalone' = $Script:StatusStandalone
+                'AppToInstallStandalone' = $Script:AppToinstallStandalone
+                'AppToUninstallStandalone' = $Script:AppToUninstallStandalone
                 'TrackingPath' = $Script:TrackingPath
                 'NotificationLevel' = $Script:NotificationLevel
                 'AutoUpdate' = $Script:AutoUpdate
