@@ -164,7 +164,7 @@ function Initialize-NinjaGet {
         $Script:Standalone = [bool]$RegistryStandalone
     } else {
         Write-Verbose 'Standalone setting not provided, using default.'
-        $Script:Standalone = $true
+        $Script:Standalone = "1"
     }
     # Get the NinjaGet AppToInstallStandalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
     $RegistryAppToInstallStandalone = Get-NinjaGetSetting -Setting 'AppToInstallStandalone'
