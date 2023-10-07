@@ -29,7 +29,7 @@ function Update-LastRunStatus {
     if ($Script:Standalone) {
         # Set the last run status.
         $RegistryPath = 'HKLM:\SOFTWARE\NinjaGet'
-        $null = Set-ItemProperty -Path $RegistryPath -Name $LastRunStatusField -Value $Status
+        $null = Set-ItemProperty -Path $RegistryPath -Name $SCript:StatusStandalone -Value $Status
     } elseif ($Script:RMMPlatform -eq 'NinjaOne') {
         # Set the last run status.
         Ninja-Property-Set -Name $LastRunStatusField -Value $Status
@@ -50,7 +50,7 @@ function Get-AppsToInstall {
     )
     if ($Script:Standalone) {
         # Get the application install field.
-        $AppsToInstall = Get-NinjaGetSetting -Setting 'AppsToInstall'
+        $AppsToInstall = Get-NinjaGetSetting -Setting 'AppsToInstallStandalone'
     } elseif ($Script:RMMPlatform -eq 'NinjaOne') {
         # Get the application install field.
         $AppsToInstall = Ninja-Property-Get -Name $AppInstallField
@@ -73,7 +73,7 @@ function Get-AppsToUninstall {
     )
     if ($Script:Standalone) {
         # Get the application uninstall field.
-        $AppsToUninstall = Get-NinjaGetSetting -Setting 'AppsToUninstall'
+        $AppsToUninstall = Get-NinjaGetSetting -Setting 'AppsToUninstallStandalone'
     } elseif ($Script:RMMPlatform -eq 'NinjaOne') {
         # Get the application uninstall field.
         $AppsToUninstall = Ninja-Property-Get -Name $AppUninstallField
