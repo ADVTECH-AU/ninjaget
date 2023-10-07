@@ -441,8 +441,8 @@ switch ($Script:Operation) {
                 'LogPath' = $Script:LogPath
                 'Standalone' = $Script:Standalone
                 'StatusStandalone' = $Script:StatusStandalone
-                'AppsToInstallStandalone' = $Script:AppToinstallStandalone
-                'AppsToUninstallStandalone' = $Script:AppToUninstallStandalone
+                'AppsToInstallStandalone' = $Script:AppsToinstallStandalone
+                'AppsToUninstallStandalone' = $Script:AppsToUninstallStandalone
                 'TrackingPath' = $Script:TrackingPath
                 'NotificationLevel' = $Script:NotificationLevel
                 'AutoUpdate' = $Script:AutoUpdate
