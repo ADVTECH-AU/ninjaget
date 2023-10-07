@@ -20,6 +20,8 @@ param (
     [System.IO.DirectoryInfo]$TrackingPath,
     # Allow the "install" application ids to be automatically update when NinjaGet runs autoupdate jobs.
     [bool]$AutoUpdate,
+     # Allow NinjaGet to run in standlone mode.
+    [bool]$Standalone,
     # Auto update blocklist. Application ids in this list will not be automatically updated when NinjaGet runs autoupdate jobs.
     [string[]]$AutoUpdateBlocklist,
     # Update only apps in the install field. The default behaviour will update all eligible apps using `winget upgrade --all`.
@@ -151,6 +153,18 @@ function Initialize-NinjaGet {
     } else {
         Write-Verbose 'Notification level not provided, using default.'
         $Script:NotificationLevel = 'Full'
+    }
+     # Get the NinjaGet standalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
+    $RegistryStandalone = Get-NinjaGetSetting -Setting 'Standalone'
+    if ($Standalone) {
+        Write-Verbose 'Standalone setting provided, using that.'
+        $Script:Standalonee = $Standalone
+    } elseif ($RegistryStandalone) {
+        Write-Verbose 'Standalone setting found in registry, using that.'
+        $Script:Standalone = [bool]$RegistryStandalone
+    } else {
+        Write-Verbose 'Standalone setting not provided, using default.'
+        $Script:Standalone = $true
     }
     # Get the NinjaGet autoupdate setting, if it's not provided, fall back to the registry and if that fails, use the default.
     $RegistryAutoUpdate = Get-NinjaGetSetting -Setting 'AutoUpdate'
@@ -389,6 +403,7 @@ switch ($Script:Operation) {
             Register-NinjaGetNotificationsScheduledTask
             $NinjaGetSettings = @{
                 'LogPath' = $Script:LogPath
+                'Standalone' = $Script:Standalone
                 'TrackingPath' = $Script:TrackingPath
                 'NotificationLevel' = $Script:NotificationLevel
                 'AutoUpdate' = $Script:AutoUpdate
