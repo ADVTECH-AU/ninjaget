@@ -167,28 +167,28 @@ function Initialize-NinjaGet {
         $Script:Standalone = $false
     }
     # Get the NinjaGet AppToInstallStandalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
-    $RegistryAppToInstallStandalone = Get-NinjaGetSetting -Setting 'AppToInstallStandalone'
-    if ($AppToInstallStandalone) {
-        Write-Verbose 'AppToInstallStandalone setting provided, using that.'
-        $Script:AppToInstallStandalone = $AppToInstallStandalone
-    } elseif ($RegistryAppToInstallStandalone) {
-        Write-Verbose 'AppToInstallStandalone setting found in registry, using that.'
-        $Script:AppToInstallStandalone = $RegistryAppToInstallStandalone
+    $RegistryAppsToInstallStandalone = Get-NinjaGetSetting -Setting 'AppsToInstallStandalone'
+    if ($AppsToInstallStandalone) {
+        Write-Verbose 'AppsToInstallStandalone setting provided, using that.'
+        $Script:AppsToInstallStandalone = $AppsToInstallStandalone
+    } elseif ($RegistryAppsToInstallStandalone) {
+        Write-Verbose 'AppsToInstallStandalone setting found in registry, using that.'
+        $Script:AppsToInstallStandalone = $RegistryAppsToInstallStandalone
     } else {
         Write-Verbose 'Standalone setting not provided, using default.'
-        $Script:AppToInstallStandalone = "google.chrome"
+        $Script:AppsToInstallStandalone = "google.chrome"
     }
     # Get the NinjaGet AppToUninstallStandalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
-    $RegistryAppToInstallStandalone = Get-NinjaGetSetting -Setting 'AppToUninstallStandalone'
+    $RegistryAppsToInstallStandalone = Get-NinjaGetSetting -Setting 'AppsToUninstallStandalone'
     if ($AppToUninstallStandalone) {
-        Write-Verbose 'AppToUninstallStandalone setting provided, using that.'
-        $Script:AppToUninstallStandalone = $AppToUninstallStandalone
-    } elseif ($RegistryAppToUninstallStandalone) {
-        Write-Verbose 'AppToUninstallStandalone setting found in registry, using that.'
-        $Script:AppToUninstallStandalone = $RegistryAppToUninstallStandalone
+        Write-Verbose 'AppsToUninstallStandalone setting provided, using that.'
+        $Script:AppsToUninstallStandalone = $AppsToUninstallStandalone
+    } elseif ($RegistryAppsToUninstallStandalone) {
+        Write-Verbose 'AppsToUninstallStandalone setting found in registry, using that.'
+        $Script:AppsToUninstallStandalone = $RegistryAppsToUninstallStandalone
     } else {
-        Write-Verbose 'Standalone setting not provided, using default.'
-        $Script:AppToUninstallStandalone = "replacewithapplications"
+        Write-Verbose 'AppsToUninstallStandalone setting not provided, using default.'
+        $Script:AppsToUninstallStandalone = "replacewithapplications"
     }
     # Get the NinjaGet StatusStandalone setting, if it's not provided, fall back to the registry and if that fails, use the default.
     $RegistryStatusStandalone = Get-NinjaGetSetting -Setting 'StatusStandalone'
