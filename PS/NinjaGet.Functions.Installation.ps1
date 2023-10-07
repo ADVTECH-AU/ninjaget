@@ -296,9 +296,9 @@ function Register-NinjaGetUpdaterScheduledTask {
         # The update interval.
         [string]$UpdateInterval = 'Daily',
         # Whether to update at logon.
-        [int]$UpdateAtLogon
+        [int]$UpdateAtLogon,
         # StandAlone Mode.
-        [int]$Standalone = $false,
+        [int]$Standalone = $false
     )
     $TaskAction = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -File `"$InstallPath\PS\Invoke-NinjaGetUpdates.ps1 -Standalone $Standalone`""
     $TaskTriggers = [System.Collections.Generic.List[Object]]@()
