@@ -360,6 +360,9 @@ function Get-NinjaGetSetting {
         [ValidateSet(
             'LogPath',
             'Standalone',
+            'StatusStandalone',
+            'AppToinstallStandalone',
+            'AppToUninstallStandalone,
             'TrackingPath',
             'NotificationLevel',
             'AutoUpdate',
